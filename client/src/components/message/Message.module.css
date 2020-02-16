@@ -1,0 +1,20 @@
+.wrapper {
+  padding: 10px;
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  font-size: 14px;
+}
+
+.warning {
+ background-color: bisque;
+}
+
+.error {
+  background-color: #ff9997;
+  border: 1px solid #6b3736;
+}
+
+.success {
+  background-color: #5eff77;
+}

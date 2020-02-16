@@ -1,0 +1,71 @@
+.wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 3px 3px 0 #dabc93;
+  border: 0;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  padding: 0 18px;
+
+  svg {
+    fill: currentColor;
+  }
+
+  span {
+    display: flex;
+    position: relative;
+    align-items: center;
+    white-space: nowrap;
+    justify-content: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &.small {
+    height: 40px;
+    font-size: 18px;
+  }
+
+  &.medium {
+    height: var(--input-height);
+    font-size: var(--input-font-size);
+  }
+}
+
+.primary {
+  background: var(--classic-blue);
+  color: white;
+
+  &:hover {
+    background-color: #22448b;
+  }
+}
+
+.secondary {
+  background: white;
+
+  &:hover {
+    background-color: #f3f2ff;
+  }
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background: #234377;
+  animation: rotate 1s ease-out infinite;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+@keyframes rotate {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(55);
+  }
+}

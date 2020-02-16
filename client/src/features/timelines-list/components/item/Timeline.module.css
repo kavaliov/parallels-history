@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 12px 15px 0;
+  background: white;
+  padding-left: 15px;
+
+  &:first-child {
+    margin-top: 8px;
+  }
+}
+
+.count {
+  padding: 0 8px;
+  font-weight: bold;
+  color: var(--classic-blue);
+}
+
+.viewCount {
+  min-width: 80px;
+  margin-left: auto;
+  display: flex;
+  padding: 0 8px;
+  align-items: center;
+  font-size: 14px;
+
+  svg {
+    margin-right: 8px;
+  }
+}
+
+.deleteContainer {
+  display: flex;
+  padding-left: 8px;
+  background: var(--paper-color);
+}

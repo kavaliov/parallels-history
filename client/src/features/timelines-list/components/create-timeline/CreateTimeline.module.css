@@ -1,0 +1,8 @@
+.wrapper {
+  display: flex;
+  padding-right: 12px;
+
+  button {
+    width: 295px;
+  }
+}

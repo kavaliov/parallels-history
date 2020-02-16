@@ -1,0 +1,48 @@
+{
+  "name": "parallel-history",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.3",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-perfect-scrollbar": "1.5.3",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.0",
+    "typesafe-actions": "5.1.0",
+    "typescript": "~3.7.2"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.9",
+    "classnames": "2.2.6",
+    "craco": "0.0.3",
+    "postcss-nested": "4.2.1",
+    "prettier": "1.19.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
