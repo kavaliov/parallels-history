@@ -1,5 +1,5 @@
 {
-  "port": 5000,
+  "port": 80,
   "jwtSalt": "holymasster 2580",
   "mongo_uri": "mongodb+srv://aleksey:MXUnb5YzkMuV5ezC@cluster0-9fkfl.azure.mongodb.net/app?retryWrites=true&w=majority"
 }
