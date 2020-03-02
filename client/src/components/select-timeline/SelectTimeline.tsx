@@ -18,7 +18,7 @@ const SelectTimeline: React.FC = () => {
       const timelines = await request("/api/timeline", "GET", null, {
         Authorization: `Bearer ${token}`
       });
-      setTimelines(timelines);
+      setTimelines(timelines.timelines);
     } catch (e) {}
   }, [request, token]);
 

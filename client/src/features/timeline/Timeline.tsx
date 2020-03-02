@@ -10,9 +10,9 @@ const Timeline: React.FC = () => {
   const [timeline, setTimeline] = useState({
     _id: "",
     title: "",
-    views: 0,
-    periods: []
+    views: 0
   });
+  const [periods, setPeriods] = useState([]);
   const { token } = useContext(AppContext);
   const { id } = useParams();
   const { request, loading } = useHttp();
@@ -27,9 +27,20 @@ const Timeline: React.FC = () => {
     } catch (e) {}
   }, [id, request, token]);
 
+  const getPeriods = useCallback(async () => {
+    try {
+      const result = await request(`/api/timeline/${id}/periods`, "GET", null, {
+        Authorization: `Bearer ${token}`
+      });
+
+      setPeriods(result);
+    } catch (e) {}
+  }, [id, request, token]);
+
   useEffect(() => {
-    getTimeline();
-  }, [getTimeline]);
+    getTimeline().catch();
+    getPeriods().catch();
+  }, [getTimeline, getPeriods]);
 
   if (loading) return <div className={styles.wrapper}>Loading ...</div>;
 
@@ -38,8 +49,13 @@ const Timeline: React.FC = () => {
       {!loading && timeline && <Details timeline={timeline} />}
       <PerfectScrollbar>
         <div className={styles.list}>
-          {timeline.periods.map((period: appTypes.Period) => (
-            <Period key={period._id} period={period} />
+          {periods.map((period: appTypes.Period) => (
+            <Period
+              key={period._id}
+              period={period}
+              periods={periods}
+              setPeriods={setPeriods}
+            />
           ))}
         </div>
       </PerfectScrollbar>

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { AppContext, appTypes } from "duck";
-import { useHttp } from "hooks";
-import { EyeIcon, Button } from "components";
-import styles from "./Timeline.module.css";
 import { Link } from "react-router-dom";
+import { useHttp } from "hooks";
+import { Button } from "components";
+import styles from "./Timeline.module.css";
 
 interface TimelineProps {
   timeline: appTypes.Timeline;
@@ -37,14 +37,17 @@ const Timeline: React.FC<TimelineProps> = ({
   return (
     <div className={styles.wrapper}>
       {timeline.title}
-      <div className={styles.viewCount}>
-        <EyeIcon /> {timeline.views}
-      </div>
+      <div className={styles.viewCount} />
       <div className={styles.deleteContainer}>
         <Link to={`/timeline/${timeline._id}`}>
-          <Button loading={loading}>VIEW</Button>
+          <Button loading={loading}>VIEW PERIODS</Button>
         </Link>
-        <Button loading={loading} variant="secondary" onClick={deleteHandler}>
+        <Button
+          loading={loading}
+          variant="secondary"
+          onClick={deleteHandler}
+          className={styles.deleteButton}
+        >
           DELETE
         </Button>
       </div>

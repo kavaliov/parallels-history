@@ -12,15 +12,15 @@ const TimelinesList: React.FC = () => {
 
   const getTimelines = useCallback(async () => {
     try {
-      const timelines = await request("/api/timeline", "GET", null, {
+      const result = await request("/api/timeline", "GET", null, {
         Authorization: `Bearer ${token}`
       });
-      setTimelines(timelines);
+      setTimelines(result.timelines);
     } catch (e) {}
   }, [request, token]);
 
   useEffect(() => {
-    getTimelines();
+    getTimelines().then();
   }, [getTimelines]);
 
   if (loading) return <div className={styles.wrapper}>Loading ...</div>;

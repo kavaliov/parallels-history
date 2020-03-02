@@ -6,6 +6,7 @@ interface InputProps extends React.HTMLProps<HTMLInputElement> {
   label?: string;
   type?: "text" | "password";
   value?: string;
+  defaultValue?: string | number;
   className?: string;
   name?: string;
   id?: string;
@@ -20,7 +21,8 @@ const Input: React.FC<InputProps> = ({
   placeholder = "",
   label = "",
   id = "",
-  onChange
+  onChange,
+  defaultValue
 }) => (
   <>
     {label && (
@@ -33,6 +35,7 @@ const Input: React.FC<InputProps> = ({
       name={name}
       type={type}
       value={value}
+      defaultValue={defaultValue}
       placeholder={placeholder}
       className={classNames(styles.wrapper, className)}
       onChange={onChange}

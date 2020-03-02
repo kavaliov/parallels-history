@@ -8,6 +8,10 @@
   height: calc(100vh - 2.5em);
   padding: 0.3125em;
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.67);
+
+  @media all and (max-width: 900px) {
+    max-width: 100%;
+  }
 }
 
 .menuWrapper {

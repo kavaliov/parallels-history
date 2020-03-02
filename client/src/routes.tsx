@@ -5,7 +5,8 @@ import {
   GridLine,
   TimelinesList,
   Timeline,
-  CreatePeriod
+  CreatePeriod,
+  Period
 } from "./features";
 
 export const useRoutes = (isAuth: boolean) => {
@@ -17,6 +18,9 @@ export const useRoutes = (isAuth: boolean) => {
         </Route>
         <Route path="/timeline/:id" exact>
           <Timeline />
+        </Route>
+        <Route path="/period/:id" exact>
+          <Period />
         </Route>
         <Route path="/period/create/:id">
           <CreatePeriod />

@@ -56,10 +56,17 @@ const CreatePeriod: React.FC = () => {
               label="From"
               name="from"
               onChange={changeHandler}
+              defaultValue={form.from}
             />
           </div>
           <div>
-            <Input id="to" label="To" name="to" onChange={changeHandler} />
+            <Input
+              id="to"
+              label="To"
+              name="to"
+              onChange={changeHandler}
+              defaultValue={form.to}
+            />
           </div>
         </div>
         <Input

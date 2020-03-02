@@ -28,9 +28,9 @@ router.post("/", auth, [check("title").exists()], async (req, res) => {
 
 router.get("/", auth, async (req, res) => {
   try {
-    const timelines = await Timeline.find({ owner: req.userId });
+    let timelines = await Timeline.find({ owner: req.userId });
 
-    return res.status(200).json(timelines);
+    return res.status(200).json({ timelines });
   } catch (e) {
     return res.status(500).json({ message: "Something went wrong" });
   }
@@ -53,11 +53,7 @@ router.get("/:id", auth, async (req, res) => {
     if (timeline.owner.toString() !== req.userId)
       return res.status(403).json({ message: "Forbidden" });
 
-    const periods = await Period.find({
-      timeline: Types.ObjectId(req.params.id)
-    });
-
-    timeline.set("periods", periods, { strict: false });
+    // timeline.set("periods", periods, { strict: false });
 
     return res.status(200).json(timeline);
   } catch (e) {
