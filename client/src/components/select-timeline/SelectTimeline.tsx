@@ -43,6 +43,7 @@ const SelectTimeline: React.FC = () => {
 
   const setTimelineHandler = (timelineId: string) => {
     dispatch(appActions.setSelectedTimeline({ selectedTimeline: timelineId }));
+    setOpened(false);
   };
 
   useEffect(() => {
