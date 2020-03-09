@@ -46,7 +46,7 @@ const GridLine: React.FC = () => {
                 className={styles.period}
                 style={{
                   top: period.top * (10 / state.scale),
-                  left: period.left,
+                  left: period.left + state.scale,
                   height: period.duration * (10 / state.scale)
                 }}
               >

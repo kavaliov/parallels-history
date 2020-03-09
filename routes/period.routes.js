@@ -63,7 +63,7 @@ router.put(
         return res.status(400).json({ errors: errors.array() });
       }
 
-      const { title, from, to, _id, description } = req.body;
+      const { _id, title, from, to, description } = req.body;
 
       Period.findOneAndUpdate(
         { _id: Types.ObjectId(_id) },

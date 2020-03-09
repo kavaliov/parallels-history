@@ -7,11 +7,7 @@ import { Details, Period } from "./components";
 import styles from "./Tineline.module.css";
 
 const Timeline: React.FC = () => {
-  const [timeline, setTimeline] = useState({
-    _id: "",
-    title: "",
-    views: 0
-  });
+  const [timeline, setTimeline] = useState();
   const [periods, setPeriods] = useState([]);
   const { token } = useContext(AppContext);
   const { id } = useParams();

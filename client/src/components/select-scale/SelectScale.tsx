@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AppContext, appActions } from "duck";
 import { Button, ZoomIn } from "../index";
+import layoutStyles from "../../features/layout/Layout.module.css";
 import styles from "./SelectScale.module.css";
 
 const SelectScale: React.FC = () => {
@@ -24,6 +25,7 @@ const SelectScale: React.FC = () => {
       className={styles.wrapper}
     >
       <ZoomIn /> x{5 / scale}
+      <span className={layoutStyles.sub}>Change Scale</span>
     </Button>
   );
 };

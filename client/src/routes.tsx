@@ -6,7 +6,8 @@ import {
   TimelinesList,
   Timeline,
   CreatePeriod,
-  Period
+  Period,
+  Registration
 } from "./features";
 
 export const useRoutes = (isAuth: boolean) => {
@@ -40,6 +41,9 @@ export const useRoutes = (isAuth: boolean) => {
       </Route>
       <Route path="/auth" exact>
         <Auth />
+      </Route>
+      <Route path="/registration" exact>
+        <Registration />
       </Route>
       <Redirect to="/" />
     </Switch>

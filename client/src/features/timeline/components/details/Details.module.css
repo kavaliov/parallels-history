@@ -40,4 +40,9 @@
   .addNewPeriod {
     width: 200px;
   }
+
+  .share {
+    width: 140px;
+    margin-right: 5px;
+  }
 }

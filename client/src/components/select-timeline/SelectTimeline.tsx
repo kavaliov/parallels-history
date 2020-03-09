@@ -3,6 +3,7 @@ import { AppContext, appTypes, appActions } from "duck";
 import { useHttp } from "hooks";
 import { Button, ImportExport, Done } from "../index";
 import styles from "./SelectTimeline.module.css";
+import layoutStyles from "../../features/layout/Layout.module.css";
 
 const SelectTimeline: React.FC = () => {
   const { request } = useHttp();
@@ -58,6 +59,7 @@ const SelectTimeline: React.FC = () => {
         onClick={openHandler}
       >
         <ImportExport className={styles.icon} />
+        <div className={layoutStyles.sub}>Select Timeline</div>
       </Button>
 
       {opened && (

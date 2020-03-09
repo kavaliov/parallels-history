@@ -27,4 +27,5 @@ export interface Timeline {
   _id: string;
   title: string;
   views: number;
+  shared: boolean;
 }

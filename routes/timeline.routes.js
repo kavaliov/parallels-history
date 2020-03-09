@@ -36,6 +36,31 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
+router.put(
+  "/shared",
+  auth,
+  [check("id").exists(), check("shared").exists()],
+  async (req, res) => {
+    try {
+      const { id, shared } = req.body;
+
+      const timeline = await Timeline.findById(id);
+      if (timeline.owner.toString() !== req.userId)
+        return res.status(403).json({ message: "Forbidden" });
+
+      Timeline.findOneAndUpdate(
+        { _id: Types.ObjectId(id) },
+        { shared },
+        (err, doc) => {
+          return res.status(200).json({ message: "Updated", item: doc });
+        }
+      );
+    } catch (e) {
+      return res.status(500).json({ message: "Something went wrong" });
+    }
+  }
+);
+
 router.get("/shared", async (req, res) => {
   try {
     const timelines = await Timeline.find({ shared: true });

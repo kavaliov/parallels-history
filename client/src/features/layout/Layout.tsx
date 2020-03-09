@@ -37,12 +37,14 @@ const Layout: React.FC<LayoutProps> = ({ className, children }) => {
         <Link to="/">
           <Button variant="secondary">
             <EyeIcon />
+            <span className={styles.sub}>Show Timeline</span>
           </Button>
         </Link>
         {!isAuth ? (
           <Link to="/auth">
             <Button variant="secondary">
               <LoginIcon />
+              <span className={styles.sub}>Sign In</span>
             </Button>
           </Link>
         ) : (
@@ -50,10 +52,12 @@ const Layout: React.FC<LayoutProps> = ({ className, children }) => {
             <Link to="/timeline-list">
               <Button variant="secondary">
                 <ListIcon />
+                <span className={styles.sub}>List Of Timelines</span>
               </Button>
             </Link>
             <Button variant="secondary" onClick={logoutHandler}>
               <LoginIcon className={styles.logout} />
+              <span className={styles.sub}>Log Out</span>
             </Button>
           </>
         )}

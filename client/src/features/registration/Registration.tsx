@@ -1,38 +1,34 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Input, Button, Message } from "components";
-import { AppContext } from "duck";
+import React, { useEffect, useState } from "react";
 import { useHttp } from "hooks";
-import styles from "./Auth.module.css";
-import { Link } from "react-router-dom";
+import { Button, Input, Message } from "components";
+import styles from "./Registration.module.css";
 
-const Auth: React.FC = () => {
+const Registration: React.FC = () => {
   const { loading, error, request, clearError } = useHttp();
-  const { login } = useContext(AppContext);
-  const [formError, setFormError] = useState(null);
   const [form, setForm] = useState({ email: "", password: "" });
+  const [formError, setFormError] = useState(null);
 
   const changeHandler = (event: any) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const loginHandler = async () => {
+  const registerHandler = async () => {
     try {
-      const data = await request("/api/auth/login", "POST", { ...form });
-      login(data.token, data.id);
+      await request("/api/auth/register", "POST", { ...form });
     } catch (e) {}
+  };
+
+  const closeErrorHandler = () => {
+    clearError();
   };
 
   useEffect(() => {
     setFormError(error);
   }, [error]);
 
-  const closeErrorHandler = () => {
-    clearError();
-  };
-
   return (
     <div className={styles.wrapper}>
-      <h1>Sign In</h1>
+      <h1>Registration</h1>
       <Input
         label="Email"
         id="email"
@@ -53,12 +49,9 @@ const Auth: React.FC = () => {
         type="password"
       />
       <div className={styles.authButtons}>
-        <Button loading={loading} onClick={loginHandler}>
-          Login
+        <Button loading={loading} onClick={registerHandler}>
+          Register
         </Button>
-        <Link to="registration">
-          <Button variant="secondary">Registration</Button>
-        </Link>
       </div>
 
       {formError && (
@@ -73,4 +66,4 @@ const Auth: React.FC = () => {
   );
 };
 
-export default Auth;
+export default Registration;

@@ -6,3 +6,4 @@ export { default as Timeline } from "./timeline";
 export { default as TimelinesList } from "./timelines-list";
 export { default as CreatePeriod } from "./create-period";
 export { default as Period } from "./period";
+export { default as Registration } from "./registration";
